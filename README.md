@@ -23,6 +23,7 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+### Documentación de referencia a temas en Vue
 ```
 Introducción a Vue
 https://es.vuejs.org/v2/guide/index.html

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <mi-nav />
     <b-button @click="cargaMiInfo()" v-b-tooltip.hover title="Cargar mi info">Cargar información</b-button>
     <b-button v-on:click="hello()" v-b-tooltip.hover title="Cargar mi info">Envia mi alerta</b-button>
     <div class="row">
@@ -13,6 +14,7 @@
         tag="article"
         style="max-width: 20rem;"
         class="mb-2"
+        @click="verPerfil(info.id)"
       >
         <b-card-text>Nombre: {{ info.first_name }} {{ info.last_name }}</b-card-text>
         <b-card-text>Sitio web: {{ info.email }}</b-card-text>
@@ -60,10 +62,12 @@
 <script>
 //import ComponenteHijo from "./components/ComponenteHijo"
 //import Card from './components/Card'
+import MiNav from '../components/MiNav'
 import axios from 'axios'
 export default {
   name: 'Home',
   components: {
+    MiNav
     //ComponenteHijo,
     //Card
   },
@@ -98,6 +102,9 @@ export default {
     },
   },
   methods: {
+    verPerfil(id) {
+      this.$router.push({ path: 'perfil', query: { userId: id }})
+    },
     miAlerta(texto, miNumero) {
       this.msg = texto;
       this.count = miNumero;
